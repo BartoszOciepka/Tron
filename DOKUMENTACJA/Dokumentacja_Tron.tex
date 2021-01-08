@@ -1,0 +1,106 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\selectlanguage{polish}
+\usepackage{graphicx}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+\graphicspath{ {./media/} }
+\lstset{
+language=[Sharp]C,
+showspaces=false,
+showtabs=false,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+keywordstyle=\color{bluekeywords}\bfseries,
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily,
+breaklines=true
+}
+
+\begin{document}
+
+
+\nocite{*}
+
+\pagenumbering{gobble}
+\clearpage
+\hspace{3cm}
+\begin{center}POLITECHNIKA ŚLĄSKA W GLIWICACH\end{center}
+\begin{center}Wydział Matematyki Stosowanej\end{center}
+\begin{center}Kierunek: Informatyka\end{center}
+\begin{center}Magisterskie, stacjonarne, sem. II\end{center}
+\hspace{3cm}
+\begin{center}\large\textbf{DOKUMENTACJA PROJEKTU Z PRZEDMIOTU\\MODELOWANIE I ANALIZA SYSTEMÓW INFORMATYCZNYCH}\end{center}
+\hspace{10cm}
+\begin{center}TEMAT ZADANIA: SYSTEMY AGENTOWE\end{center}
+\hspace{5cm}
+\begin{flushright}Członkowie zespołu:
+\par
+\textit{Bartosz Ociepka}
+\par
+\textit{Beniamin Stecuła}
+\end{flushright}
+\vfill
+\begin{center}Internet, 2020/2021\end{center}
+
+\newpage
+\section{Podział pracy}
+
+\begin{center}Bartosz Ociepka - backend\\Beniamin Stecuła - frontend, dokumentacja\end{center}
+
+\section{Udokumentowanie prac}
+\newpage
+
+\section{Instrukcja wdrażania projektu}
+
+\section{Instrukcja obsługi projektu}
+Aby uruchomić nasz projektu wystarczy kliknąć przycisk Play w Unity. Wcześniej jednak należy upewnić się w każdym z graczy jest odpowiedni model sieci neuronowej oraz jest wybrany odpowiedni tryb gry (Training - dla odradzania się, Inferencing dla jednego życia każdego z graczy.) oraz tryb sterowania (Default - sterowanie przez AI, Heurisitic - sterowanie 'strzałkami') 
+
+\section{System agentowy}
+
+\section{Wady i zalety systemów agentowych}
+Na podstawie implementowanego projektu możemy wyciągnąć wnioski co do systemów agentowych. Przede wszystkim uczenie przez wzmacnianie (ang. Reinforcement learning) niezbyt nadaje się do tego typu projektu. Mimo długiego uczenia wyniki nie są zadowalające. Kolejną wadą jaką dostrzegliśmy to skomplikowanie całego systemu. Sama sztuczna inteligencja to dopiero początek ponieważ oprócz tego w systemie trzeba zamodelować powiązania między agentami i ich interakcje. W naszym przypadku powodowało to, że cały system jest duży i po części jest 'black boxem' więc trudno było dostosowywać wartości w systemie aby funkcjonował on lepiej. Mimo skomplikowania dostrzegamy dużą zaletę systemów eksperckich jaką jest możliwość dostosowania do zadania. W naszym przypadku jest to gra typu Tron, ale w sieci bez problemu można znaleźć modele agentowe w innych grach lub innych systemach. 
+
+\section{Wygląd systemu}
+
+
+\section{Fragmenty kodu}
+AddFilm.aspx.cs
+\begin{lstlisting}
+
+\end{lstlisting}
+
+AddFilm.aspx
+\begin{lstlisting}
+
+\end{lstlisting}
+
+AddReservation.aspx.cs
+\begin{lstlisting}
+
+\end{lstlisting}
+AddReservation.aspx
+\begin{lstlisting}
+
+\end{lstlisting}
+Register.aspx.cs
+\begin{lstlisting}
+
+\end{lstlisting}
+Register.aspx
+\begin{lstlisting}
+
+\end{lstlisting}
+
+\end{document}
