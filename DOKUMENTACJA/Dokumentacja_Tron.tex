@@ -70,25 +70,43 @@ breaklines
 	\item przechowywanie kopii poprzednich wersji programu.
 \end{itemize}
 
-W ramach repozytorium każdy z nas wrzucał commity do swoim zadań \\
+W ramach repozytorium każdy z nas wrzucał commity do swoich zadań \\
 \includegraphics[width=0.9\linewidth]{media/githubProof}\\
-Całe repozytorium jest dostępne pod adresem \\https://github.com/BartoszOciepka/DiabetesNeuralNetwork
+Całe repozytorium jest dostępne pod adresem \\https://github.com/BartoszOciepka/Tron
 
 
 
 
 \section{Założenia projektu}
+Przetestowanie i zaprezentowanie możliwości korzystania z systemów agentowych.
 
+Zapoznanie się z silnymi i słabymi stronami systemów agentowych. 
 
 
 
 \section{Cel projektu}
+Stworzenie systemu agentowego w środowisku Unity, który za pomocą sieci neuronowej nauczy się grać w grę Tron.
 
+Gra Tron polega na poruszaniu się punktem po planszy i unikaniu ścian. Gracze sterują bohaterem za pomocą strzałek i mogą poruszać się w czterech, prostopadłych do ścian obszaru gry kierunkach. Skręcanie dozwolone jest tylko o kąt prosty. Gracze poruszają się z równą, stałą prędkością i pozostawiają za sobą ślad, który jest nieprzekraczalną ścianą. W momencie, gdy któryś z graczy zderzy się ze ścianą, odpada. Ostatni żyjący gracz jest ogłoszony zwycięzcą.
+
+W projekcie domyślnie bierze udział dwóch komputerowych graczy, którzy będą dwoma agentami próbującymi wygrać ze swoim rywalem.
+
+Trzecim agentem jest wieża, która daje podpowiedzi agentom, zawierające informacje o położeniu przeciwnika. Informacje te nie muszą być prawdziwe.
+
+Agenci mogą z tych informacji korzystać lub postanowić je ignorować, gdy odkryją oszustwo.
 
 
 
 \section{Instrukcja wdrażania projektu}
+	Aby wdrożyć projekt należy wykonać poniższą listę kroków:
 
+\begin{enumerate}
+	\item zaimportowanie projektu w Unity,
+	\item przypisanie sieci neuronowej każdemu z graczy,
+	\item wybranie trybu \textit{Training},
+	\item ustawienie sterowania na \textit{Default},
+	\item uruchomienie projektu za pomocą przycisku Play na górze ekranu i odczekanie do końca wykonania programu.
+\end{enumerate}
 
 
 
