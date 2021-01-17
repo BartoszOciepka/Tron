@@ -60,28 +60,81 @@ breaklines
 
 \begin{center}Bartosz Ociepka - backend\\Beniamin Stecuła - frontend, dokumentacja\end{center}
 
+
+
 \section{Udokumentowanie prac}
+	Dokumentowanie pracy odbyło się na kilka sposobów:
+\begin{itemize}
+	\item utworzenie niniejszej dokumentacji,
+	\item zarządzanie podziałem i wykonaniem zadań w serwisie Trello,
+	\item przechowywanie kopii poprzednich wersji programu.
+\end{itemize}
+
+W ramach repozytorium każdy z nas wrzucał commity do swoich zadań \\
+\includegraphics[width=0.9\linewidth]{media/githubProof}\\
+Całe repozytorium jest dostępne pod adresem \\https://github.com/BartoszOciepka/Tron
+
+
+
 
 \section{Założenia projektu}
+Przetestowanie i zaprezentowanie możliwości korzystania z systemów agentowych.
+
+Zapoznanie się z silnymi i słabymi stronami systemów agentowych. 
+
+
 
 \section{Cel projektu}
+Stworzenie systemu agentowego w środowisku Unity, który za pomocą sieci neuronowej nauczy się grać w grę Tron.
+
+Gra Tron polega na poruszaniu się punktem po planszy i unikaniu ścian. Gracze sterują bohaterem za pomocą strzałek i mogą poruszać się w czterech, prostopadłych do ścian obszaru gry kierunkach. Skręcanie dozwolone jest tylko o kąt prosty. Gracze poruszają się z równą, stałą prędkością i pozostawiają za sobą ślad, który jest nieprzekraczalną ścianą. W momencie, gdy któryś z graczy zderzy się ze ścianą, odpada. Ostatni żyjący gracz jest ogłoszony zwycięzcą.
+
+W projekcie domyślnie bierze udział dwóch komputerowych graczy, którzy będą dwoma agentami próbującymi wygrać ze swoim rywalem.
+
+Trzecim agentem jest wieża, która daje podpowiedzi agentom, zawierające informacje o położeniu przeciwnika. Informacje te nie muszą być prawdziwe.
+
+Agenci mogą z tych informacji korzystać lub postanowić je ignorować, gdy odkryją oszustwo.
+
+
 
 \section{Instrukcja wdrażania projektu}
+	Aby wdrożyć projekt należy wykonać poniższą listę kroków:
+
+\begin{enumerate}
+	\item zaimportowanie projektu w Unity,
+	\item przypisanie sieci neuronowej każdemu z graczy,
+	\item wybranie trybu \textit{Training},
+	\item ustawienie sterowania na \textit{Default},
+	\item uruchomienie projektu za pomocą przycisku Play na górze ekranu i odczekanie do końca wykonania programu.
+\end{enumerate}
+
+
 
 \section{Instrukcja obsługi projektu}
-Aby uruchomić nasz projektu wystarczy kliknąć przycisk Play w Unity. Wcześniej jednak należy upewnić się w każdym z graczy jest odpowiedni model sieci neuronowej oraz jest wybrany odpowiedni tryb gry (Training - dla odradzania się, Inferencing dla jednego życia każdego z graczy.) oraz tryb sterowania (Default - sterowanie przez AI, Heurisitic - sterowanie 'strzałkami') 
+Aby uruchomić nasz projekt wystarczy kliknąć przycisk Play w Unity. Wcześniej jednak należy upewnić się, że w każdym z graczy jest odpowiedni model sieci neuronowej oraz jest wybrany odpowiedni tryb gry (\textit{Training} - dla odradzania się, \textit{Inferencing} dla jednego życia każdego z graczy) oraz tryb sterowania (\textit{Default} - sterowanie przez AI, \textit{Heurisitic} - sterowanie 'strzałkami').
+
+
+
 
 \section{System agentowy}
 W naszym projekcie mamy 2 rodzaje agentów.\\
-Pierwszym rodzajem jest gracz. Każdy gracz pozostawia za sobą 'ścianę'. Wjechanie w 'ścianę' powoduje koniec gry (tak samo jak wjechanie w ściany określające koniec areny). W ramach biblioteki ML Agents nasi gracze są wyposażeni w sztuczną inteligencję opartą o uczenie przez wzmacnianie. Agenci są w nim punktowani każdy ruch który nie doprowadza do ich śmierci oraz unieszkodliwienie przeciwnika własną ścianą. Sieć neuronowa ma 3 warstwy, a w każdej z nich po 128 neuronów (pełna konfiguracja znajduje się w pliku Assets/AI/Tron.yaml). Agenci mają sensory co 45 stopni w każdym kierunku i na tej podstawie określają co się obok nich znajduje (domyślnie widzą na 20 jednostek w przód). Sieć sprawdza też położenie przeciwnika (jeśli jest na tyle blisko żeby był widziany przez agenta). Każdy z tych agentów dokonuje akcji co 20 klatek animacji. Ten typ agenta możemy również uruchomić w trybie pozwalającym na samodzielne kierowanie.\\
+Pierwszym rodzajem jest gracz. Każdy gracz pozostawia za sobą 'ścianę'. Wjechanie w 'ścianę' powoduje koniec gry (tak samo jak wjechanie w ściany określające koniec areny). W ramach biblioteki ML Agents nasi gracze są wyposażeni w sztuczną inteligencję opartą o uczenie przez wzmacnianie. Agenci są w nim punktowani za każdy ruch który nie doprowadza do ich śmierci oraz unieszkodliwienie przeciwnika własną ścianą, za co dostają bardzo duży bonus. Sieć neuronowa ma 3 warstwy, a w każdej z nich po 128 neuronów (pełna konfiguracja znajduje się w pliku Assets/AI/Tron.yaml). Agenci mają sensory co 45 stopni w każdym kierunku i na tej podstawie określają co się obok nich znajduje (domyślnie widzą na 20 jednostek w przód). Sieć sprawdza też położenie przeciwnika (jeśli jest na tyle blisko żeby był widziany przez agenta). Każdy z tych agentów dokonuje akcji co 20 klatek animacji. Ten typ agenta możemy również uruchomić w trybie pozwalającym na samodzielne kierowanie.\\
 Kolejnym typem agenta jest wieża. Wieża nie bierze udziału w rozgrywce lecz ma ogląd na całą arenę i może pomagać lub przeszkadzać graczom. Co pewien losowy czas (od 1 do 10 sekund) wieża wysyła graczom koordynaty jego przeciwnika. Na początku jednak wieża losowo wybiera dla każdego gracza czy mu pomaga (podaje poprawne koordynaty) czy przeszkadza (podając losowe). Gracze domyślnie wierzą wieży lecz jeśli zauważą odstępstwo między lokalizacją przeciwnika widzianą przez nich a podawaną przez wieżę to przestają i do końca gry nie reagują na jej 'pomoc'.
+
+
 
 
 \section{Wady i zalety systemów agentowych}
 Na podstawie implementowanego projektu możemy wyciągnąć wnioski co do systemów agentowych. Przede wszystkim uczenie przez wzmacnianie (ang. Reinforcement learning) niezbyt nadaje się do tego typu projektu. Mimo długiego uczenia wyniki nie są zadowalające. Kolejną wadą jaką dostrzegliśmy to skomplikowanie całego systemu. Sama sztuczna inteligencja to dopiero początek ponieważ oprócz tego w systemie trzeba zamodelować powiązania między agentami i ich interakcje. W naszym przypadku powodowało to, że cały system jest duży i po części jest 'black boxem' więc trudno było dostosowywać wartości w systemie aby funkcjonował on lepiej. Mimo skomplikowania dostrzegamy dużą zaletę systemów eksperckich jaką jest możliwość dostosowania do zadania. W naszym przypadku jest to gra typu Tron, ale w sieci bez problemu można znaleźć modele agentowe w innych grach lub innych systemach. 
 
+
+
+
 \section{Wygląd systemu}
 \includegraphics[scale=0.8]{media/Wyglad1}
+
+
+
 
 \section{Fragmenty kodu}
 TronAgent.cs
