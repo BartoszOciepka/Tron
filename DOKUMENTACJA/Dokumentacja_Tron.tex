@@ -60,16 +60,43 @@ breaklines
 
 \begin{center}Bartosz Ociepka - backend\\Beniamin Stecuła - frontend, dokumentacja\end{center}
 
+
+
 \section{Udokumentowanie prac}
+	Dokumentowanie pracy odbyło się na kilka sposobów:
+\begin{itemize}
+	\item utworzenie niniejszej dokumentacji,
+	\item zarządzanie podziałem i wykonaniem zadań w serwisie Trello,
+	\item przechowywanie kopii poprzednich wersji programu.
+\end{itemize}
+
+W ramach repozytorium każdy z nas wrzucał commity do swoim zadań \\
+\includegraphics[width=0.9\linewidth]{media/githubProof}\\
+Całe repozytorium jest dostępne pod adresem \\https://github.com/BartoszOciepka/DiabetesNeuralNetwork
+
+
+
 
 \section{Założenia projektu}
 
+
+
+
 \section{Cel projektu}
+
+
+
 
 \section{Instrukcja wdrażania projektu}
 
+
+
+
 \section{Instrukcja obsługi projektu}
 Aby uruchomić nasz projekt wystarczy kliknąć przycisk Play w Unity. Wcześniej jednak należy upewnić się, że w każdym z graczy jest odpowiedni model sieci neuronowej oraz jest wybrany odpowiedni tryb gry (\textit{Training} - dla odradzania się, \textit{Inferencing} dla jednego życia każdego z graczy) oraz tryb sterowania (\textit{Default} - sterowanie przez AI, \textit{Heurisitic} - sterowanie 'strzałkami').
+
+
+
 
 \section{System agentowy}
 W naszym projekcie mamy 2 rodzaje agentów.\\
@@ -77,11 +104,19 @@ Pierwszym rodzajem jest gracz. Każdy gracz pozostawia za sobą 'ścianę'. Wjec
 Kolejnym typem agenta jest wieża. Wieża nie bierze udziału w rozgrywce lecz ma ogląd na całą arenę i może pomagać lub przeszkadzać graczom. Co pewien losowy czas (od 1 do 10 sekund) wieża wysyła graczom koordynaty jego przeciwnika. Na początku jednak wieża losowo wybiera dla każdego gracza czy mu pomaga (podaje poprawne koordynaty) czy przeszkadza (podając losowe). Gracze domyślnie wierzą wieży lecz jeśli zauważą odstępstwo między lokalizacją przeciwnika widzianą przez nich a podawaną przez wieżę to przestają i do końca gry nie reagują na jej 'pomoc'.
 
 
+
+
 \section{Wady i zalety systemów agentowych}
 Na podstawie implementowanego projektu możemy wyciągnąć wnioski co do systemów agentowych. Przede wszystkim uczenie przez wzmacnianie (ang. Reinforcement learning) niezbyt nadaje się do tego typu projektu. Mimo długiego uczenia wyniki nie są zadowalające. Kolejną wadą jaką dostrzegliśmy to skomplikowanie całego systemu. Sama sztuczna inteligencja to dopiero początek ponieważ oprócz tego w systemie trzeba zamodelować powiązania między agentami i ich interakcje. W naszym przypadku powodowało to, że cały system jest duży i po części jest 'black boxem' więc trudno było dostosowywać wartości w systemie aby funkcjonował on lepiej. Mimo skomplikowania dostrzegamy dużą zaletę systemów eksperckich jaką jest możliwość dostosowania do zadania. W naszym przypadku jest to gra typu Tron, ale w sieci bez problemu można znaleźć modele agentowe w innych grach lub innych systemach. 
 
+
+
+
 \section{Wygląd systemu}
 \includegraphics[scale=0.8]{media/Wyglad1}
+
+
+
 
 \section{Fragmenty kodu}
 TronAgent.cs
